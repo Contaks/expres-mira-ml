@@ -170,7 +170,39 @@ app.post(
       });
     }
   }
-);
+);  
+
+// GET endpoint to retrieve prediction data
+app.get("/predict/:id", async (req, res) => {
+  try {
+    const predictCollection = firestore.collection("predictions");
+    const snapshot = await predictCollection.doc(String(req.params.id)).get();
+    if (!snapshot.exists) {
+      return res.status(404).json({
+        status: "fail",
+        message: "Prediction not found",
+        data: {},
+      });
+    }
+    const data = snapshot.data();
+    res.status(200).json({
+      status: "success",
+      message: "Prediction found",
+      data,
+    });
+  } catch (error) {
+    console.error("Error retrieving prediction data:", error);
+    res.status(500).json({
+      status: "fail",
+      message: "Error retrieving prediction data",
+      error: error.message,
+    });
+  }
+});
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the Brain Tumor Detection API");
+});
 
 // Start the server
 app.listen(PORT, () => {
