@@ -13,7 +13,12 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 // Set up CORS
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH"],
+  }
+));
 
 // Initialize Firestore
 const firestore = new Firestore({
