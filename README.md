@@ -19,13 +19,14 @@ To start the server, run:
 npm start
 
 ## Structur
-expres-mira-ml/
-├── server/
-│   ├── temp/
-│   └── server.js
-├── services/
-│   └── storeData.js
-├── .env
-├── .env.example
-├── package.json
-├── README.md
+  expres-mira-ml/
+  ├── server/
+  │   ├── temp/
+  │   └── server.js
+  ├── services/
+  │   └── storeData.js
+  ├── .env
+  ├── .env.example
+  ├── package.json
+  ├── README.md
+
