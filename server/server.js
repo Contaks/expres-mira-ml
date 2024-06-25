@@ -17,8 +17,8 @@ app.use(
   cors({
     origin: "*",
     methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH"],
-  }
-));
+  })
+);
 
 // Initialize Firestore
 const firestore = new Firestore({
@@ -175,8 +175,7 @@ app.post(
       });
     }
   }
-);  
-
+);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Brain Tumor Detection API");
