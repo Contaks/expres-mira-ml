@@ -1,4 +1,4 @@
-require("dotenv").config(); // Load environment variables from .env file
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
@@ -13,7 +13,12 @@ const app = express();
 const PORT = process.env.PORT || 9000;
 
 // Set up CORS
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH"],
+  })
+);
 
 // Initialize Firestore
 const firestore = new Firestore({
@@ -171,6 +176,10 @@ app.post(
     }
   }
 );
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the Brain Tumor Detection API");
+});
 
 // Start the server
 app.listen(PORT, () => {

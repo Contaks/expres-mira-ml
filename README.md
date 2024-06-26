@@ -17,15 +17,3 @@ This project contains the backend logic for the Expres Mira ML application, whic
 
 To start the server, run:
 npm start
-
-## Structur
-expres-mira-ml/
-├── server/
-│   ├── temp/
-│   └── server.js
-├── services/
-│   └── storeData.js
-├── .env
-├── .env.example
-├── package.json
-├── README.md
